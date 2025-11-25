@@ -1,45 +1,56 @@
-<html>
+<!html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School First Aid Contact</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School First Aid Contact</title>
+<link rel="stylesheet" href="styles.css">
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
 </head>
 <body>
-    <header>
-        <h1>School First Aid Contact</h1>
-    </header>
-    <main>
-        <section id="contact">
-            <h2>Contact First Aiders</h2>
-            <p>If you need immediate assistance, please contact one of our first aiders below:</p>
-          <p>(Please note that this website should only be used within school hours)</p>
-            <input type="text" id="search-bar" placeholder="Contact a first aider">
-            <ul id="first-aiders-list">
-                <!-- First aiders' contact details will be populated here -->
-            </ul>
-        </section>
-        <section id="advice">
-            <h2>First Aid Tips & Advice</h2>
-            <p>If first aiders is not available, follow these steps:</p>
-            <ul>
-                <li>Stay calm and call emergency services if necessary.</li>
-                <li>Check for responsiveness and breathing.</li>
-                <li>Apply pressure to any bleeding wounds.</li>
-                <li>Keep the injured person comfortable and warm.</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 SHC First Aid Contact</p>
-    </footer>
-    <script src="script.js"></script>
+
+<header>
+    <h1>School First Aid Contact</h1>
+</header>
+
+<main>
+    <!-- First Aider Login -->
+    <section id="login-section">
+        <h2>First Aider Login</h2>
+        <input type="text" id="aider-code" placeholder="Enter your first aider code">
+        <button id="login-btn">Login</button>
+        <p id="login-error" style="color: red; display:none;">Invalid code</p>
+    </section>
+
+    <!-- Status Update (hidden until login) -->
+    <section id="status-update" style="display:none;">
+        <h2>Update Your Status</h2>
+        <select id="status-select">
+            <option value="available">Available</option>
+            <option value="online">Online</option>
+            <option value="inclass">In Class</option>
+            <option value="offline">Offline</option>
+        </select>
+        <button id="update-status-btn">Update Status</button>
+    </section>
+
+    <!-- Student Section -->
+    <section id="contact">
+        <h2>Contact First Aiders</h2>
+        <p>If you need immediate assistance, please contact one of our first aiders below:</p>
+        <input type="text" id="search-bar" placeholder="Search first aider">
+        <ul id="first-aiders-list"></ul>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 SHC First Aid Contact</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
